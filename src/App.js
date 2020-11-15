@@ -10,6 +10,7 @@ import Login from './Components/Login/Login/Login';
 function App() {
   return (
     <Router>
+      <h1>Test</h1>
       <Switch>
         <Route exact path="/">
           <Home></Home>
