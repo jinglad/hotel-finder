@@ -1,3 +1,26 @@
-.bg-nav{
-    background-color: aqua;
+.w-40{
+    width: 40%!important;
 }
+.nav-link{
+    color: black!important;
+    font-weight: bold!important;
+    margin-right: 10px;
+    transition: .3s;
+}
+.nav-link:hover{
+    background: blueviolet!important;
+    color: white!important;
+    border-radius: 3px;
+}
+.log-in-btn{
+    padding: 4px 12px!important;
+    margin-top: 5px;
+    display: block;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: white!important;
+    background: #275A53;
+    text-decoration:none!important;
+}
+

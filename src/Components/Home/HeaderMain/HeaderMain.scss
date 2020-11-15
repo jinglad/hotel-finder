@@ -1,0 +1,36 @@
+.header-main-container {
+  text-align: center;
+  .header-main-text {
+    padding-top: 200px;
+    color: white;
+  }
+  .search-container {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    .search-box {
+      width: 70%;
+      padding: 8px 10px;
+      border: none;
+      box-shadow: 0 0 10px gray;
+      border-radius: 5px;
+      outline: none;
+      margin-right: 30px;
+    }
+
+    .search-btn {
+      padding: 8px 10px;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      background: #275A53;
+      color: white;
+      box-shadow: 0 0 10px gray;
+      transition: 0.3s all ease-in-out;
+    }
+    .search-btn:hover {
+      background: #0b529e;
+    }
+  }
+}
