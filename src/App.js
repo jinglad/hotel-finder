@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login/Login';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

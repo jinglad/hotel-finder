@@ -1,9 +1,10 @@
 import React from 'react';
+import Navbar from '../../Reused/Navbar/Navbar';
 
 const Home = () => {
     return (
-        <div>
-            <h1>this is home page</h1>
+        <div className="container">
+            <Navbar></Navbar>
         </div>
     );
 };
