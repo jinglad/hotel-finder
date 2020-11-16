@@ -9,6 +9,7 @@ import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import SideBar from "./Components/Dashboard/Sidebar/Sidebar";
 import MyRent from "./Components/Dashboard/User/MyRent/MyRent";
 import AllBookingList from "./Components/Dashboard/Admin/AllBookingList/AllBookingList";
+import AddRent from "./Components/Dashboard/User/AddRent/AddRent";
 
 export const houseRentItemContext = createContext();
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </PrivateRoute>
           <Route path="/sidebar">
             <SideBar></SideBar>
+          </Route>
+          <Route path="/add-rent">
+            <AddRent></AddRent>
           </Route>
           <Route path="/my-rent">
             <MyRent></MyRent>
