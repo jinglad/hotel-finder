@@ -6,6 +6,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { createContext, useState } from "react";
 import HouseRentItemDetails from "./Components/Home/HouseRentItemDetails/HouseRentItemDetails";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
+import SideBar from "./Components/Dashboard/Sidebar/Sidebar";
+import MyRent from "./Components/Dashboard/User/MyRent/MyRent";
+import AllBookingList from "./Components/Dashboard/Admin/AllBookingList/AllBookingList";
 
 export const houseRentItemContext = createContext();
 function App() {
@@ -23,6 +26,15 @@ function App() {
           <PrivateRoute path="/houseRentItemDetails">
             <HouseRentItemDetails></HouseRentItemDetails>
           </PrivateRoute>
+          <Route path="/sidebar">
+            <SideBar></SideBar>
+          </Route>
+          <Route path="/my-rent">
+            <MyRent></MyRent>
+          </Route>
+          <Route path="/all-bookings">
+            <AllBookingList></AllBookingList>
+          </Route>
         </Switch>
       </Router>
     </houseRentItemContext.Provider>
