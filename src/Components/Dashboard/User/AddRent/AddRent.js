@@ -2,7 +2,7 @@ import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Sidebar from "../../Sidebar/Sidebar";
-import "./AddRent.css";
+import "./AddRent.scss";
 
 const AddRent = () => {
   return (

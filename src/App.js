@@ -6,7 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { createContext, useState } from "react";
 import HouseRentItemDetails from "./Components/Home/HouseRentItemDetails/HouseRentItemDetails";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
-import SideBar from "./Components/Dashboard/Sidebar/Sidebar";
+import Sidebar from "./Components/Dashboard/Sidebar/Sidebar";
 import MyRent from "./Components/Dashboard/User/MyRent/MyRent";
 import AllBookingList from "./Components/Dashboard/Admin/AllBookingList/AllBookingList";
 import AddRent from "./Components/Dashboard/User/AddRent/AddRent";
@@ -28,13 +28,16 @@ function App() {
             <HouseRentItemDetails></HouseRentItemDetails>
           </PrivateRoute>
           <Route path="/sidebar">
-            <SideBar></SideBar>
+            <Sidebar></Sidebar>
           </Route>
           <Route path="/add-rent">
             <AddRent></AddRent>
           </Route>
           <Route path="/my-rent">
             <MyRent></MyRent>
+          </Route>
+          <Route path="/add-rent">
+            <AddRent></AddRent>
           </Route>
           <Route path="/all-bookings">
             <AllBookingList></AllBookingList>
