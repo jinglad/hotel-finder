@@ -5,7 +5,7 @@ const HeaderMain = () => {
   return (
     <div className="header-main-container">
       <div className="header-main-text">
-        <h1>I GROW BY HELPING PEOPLE IN NEED.</h1>
+        <h1 className="text-uppercase">Find your house rent</h1>
       </div>
       <div className="search-container">
         <input className="search-box" type="text" placeholder="Search..." />

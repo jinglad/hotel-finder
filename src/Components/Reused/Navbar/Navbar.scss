@@ -1,3 +1,4 @@
+$color-1: #275A53;
 .w-40{
     width: 40%!important;
 }
@@ -20,7 +21,7 @@
     border: none;
     outline: none;
     color: white!important;
-    background: #275A53;
+    background: $color-1;
     text-decoration:none!important;
 }
 
