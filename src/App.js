@@ -5,6 +5,7 @@ import Login from "./Components/Login/Login/Login";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { createContext, useState } from "react";
 import HouseRentItemDetails from "./Components/Home/HouseRentItemDetails/HouseRentItemDetails";
+import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 
 export const houseRentItemContext = createContext();
 function App() {
@@ -19,9 +20,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/houseRentItemDetails">
+          <PrivateRoute path="/houseRentItemDetails">
             <HouseRentItemDetails></HouseRentItemDetails>
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </houseRentItemContext.Provider>
