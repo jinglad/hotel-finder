@@ -1,0 +1,35 @@
+.my-rents h4{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 33px;
+    color: #0C0C0C;
+}
+
+.my-rents p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.my-rents th {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #686868;
+}
+
+.my-rents td {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.my-rents .btn {
+    color: #FFFFFF;
+    background: #275A53;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 8px 10px;
+}
