@@ -13,13 +13,16 @@ import AddRent from "./Components/Dashboard/User/AddRent/AddRent";
 
 export const houseRentItemContext = createContext();
 export const userContext = createContext();
+export const bookingsContext = createContext();
 
 function App() {
   const [houseRentItem, setHouseRentItem] = useState({});
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [orders, setOrders] = useState({});
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <houseRentItemContext.Provider value={[houseRentItem, setHouseRentItem]}>
+        <bookingsContext.Provider value={[orders, setOrders]}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -45,6 +48,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        </bookingsContext.Provider>
       </houseRentItemContext.Provider>
     </userContext.Provider>
   );

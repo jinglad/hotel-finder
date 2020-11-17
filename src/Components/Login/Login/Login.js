@@ -27,7 +27,7 @@ const Login = () => {
 
         firebase.auth().signInWithPopup(provider).then(function(result) { 
             const {displayName, email} = result.user;
-            const signedInUser = {name: displayName, email}
+            const signedInUser = {name: displayName, email: email}
             setLoggedInUser(signedInUser);
             history.replace(from);
             console.log(signedInUser);

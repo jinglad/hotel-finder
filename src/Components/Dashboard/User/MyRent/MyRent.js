@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { houseRentItemContext, userContext } from '../../../../App';
 import Sidebar from '../../Sidebar/Sidebar';
 import './MyRent.scss';
 
 const MyRent = () => {
+    const [bookings, setBookings] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [houseRentItem, setHouseRentItem] = useContext(houseRentItemContext);
+
+    console.log(loggedInUser);
+
+    useEffect(() => {
+        fetch(`https://scintillating-rustic-egret.glitch.me/customerOrders?email=${loggedInUser.email}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setBookings(data);
+            })
+    }, []);
+
     return (
         <div className="my-rents container-fluid">
             <div className="row">
@@ -12,7 +33,7 @@ const MyRent = () => {
                 <div className="col-md-8 mt-5">
                     <div className="d-flex justify-content-between mb-5 mt-3">
                         <h3 className="mb-0">My Rents</h3>
-                        <p>User Name</p>
+                        <p>{loggedInUser.name}</p>
                     </div>
                     <div className="booking-table mx-auto bg-light" >
                        <div className="table-bordered rounded">
@@ -20,20 +41,19 @@ const MyRent = () => {
                                 <thead>
                                     <tr className="bg-light">
                                         <th scope="col">Name</th>
-                                        <th scope="col">Email ID</th>
-                                        <th scope="col">Phone No</th>
-                                        <th scope="col">Message</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-none">
-                                    <tr>
-                                        <td>Rafsun</td>
-                                        <td>saifrafsun@gmail.com</td>
-                                        <td>018xxxxxxx</td>
-                                        <td>This is test</td>
-                                        <td>Pending/Done</td>
-                                    </tr>
+                                {
+                                    bookings.map(order =>
+                                        <tr className="border">
+                                            <td>{order.name}</td>
+                                            <td>{order.price}</td>
+                                            <Link  to="/houseRentItemDetails"><td className="btn btn-primary">View Details</td></Link>
+                                        </tr>)
+                                }
                                 </tbody>
                             </table>
                        </div>
