@@ -1,10 +1,34 @@
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../Sidebar/Sidebar";
 import "./AddRent.scss";
 
 const AddRent = () => {
+  const [rent, setRent] = useState({ name: '', price: '',bedroom: '', bathroom: '', location: '', file: '' });
+
+  const handleSubmit = (e) => {
+    fetch('http://localhost:5000/addRent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rent)
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result) {
+        alert("added house")
+        }
+      })
+
+    e.preventDefault();
+  }
+  const handleBlur = (e) => {
+    const newRent = { ...rent };
+    newRent[e.target.name] = e.target.value;
+    setRent(newRent);
+  }
   return (
     <div className="container-fluid">
       <div className="row">
@@ -15,7 +39,7 @@ const AddRent = () => {
           <div>
             <h3 className="my-4 mx-5">Add Rent</h3>
             <div className="bg-light py-2 rounded " style={{ height: "89vh" }}>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div
                   className="row    p-4 mx-5 mt-5 bg-white "
                   style={{ borderRadius: "15px" }}
@@ -25,27 +49,30 @@ const AddRent = () => {
                       <label className="font-weight-bold">Title</label>
                       <input
                         type="text"
-                        name="title"
+                        name="name"
                         className="form-control "
                         placeholder="Enter title"
+                        onBlur={handleBlur}
                       />
                     </div>
                     <div className="form-group">
                       <label className="font-weight-bold">Location</label>
                       <input
                         type="text"
-                        name="title"
+                        name="location"
                         className="form-control "
                         placeholder="Enter title"
+                        onBlur={handleBlur}
                       />
                     </div>
                     <div className="form-group">
                       <label className="font-weight-bold">No of Bathroom</label>
                       <input
                         type="text"
-                        name="title"
+                        name="bathroom"
                         className="form-control "
                         placeholder="Enter title"
+                        onBlur={handleBlur}
                       />
                     </div>
                   </div>
@@ -55,24 +82,26 @@ const AddRent = () => {
                       <label className="font-weight-bold">Price</label>
                       <input
                         type="text"
-                        name="title"
+                        name="price"
                         className="form-control "
-                        placeholder="Enter title"
+                        placeholder="Enter price"
+                        onBlur={handleBlur}
                       />
                     </div>
                     <div className="form-group">
                       <label className="font-weight-bold">No of Bedroom</label>
                       <input
                         type="text"
-                        name="title"
+                        name="bedroom"
                         className="form-control "
                         placeholder="Enter title"
+                        onBlur={handleBlur}
                       />
                     </div>
                     <div className="form-group">
                       <p className="font-weight-bold mb-2">Thumbnail</p>
                       <label className="upload-btn">
-                        <input type="file" className="form-control-file" />
+                        <input name="img" type="file" className="form-control-file" onChange={handleBlur} />
                         <FontAwesomeIcon
                           icon={faCloudUploadAlt}
                           className="mr-2"
