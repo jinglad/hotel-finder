@@ -131,6 +131,9 @@ const HouseRentItemDetails = () => {
             <div className="form-group">
                 <textarea cols="30" rows="5" placeholder="Message" className="text-secondary form-control-lg form-control"></textarea>
             </div>
+            <div className="form-group"> 
+                <button className="btn btn-block btn-primary">Request Booking</button>
+            </div>
           </div>
       </div>
         </div>

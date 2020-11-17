@@ -10,7 +10,6 @@ import Sidebar from "./Components/Dashboard/Sidebar/Sidebar";
 import MyRent from "./Components/Dashboard/User/MyRent/MyRent";
 import AllBookingList from "./Components/Dashboard/Admin/AllBookingList/AllBookingList";
 import AddRent from "./Components/Dashboard/User/AddRent/AddRent";
-import Service from "./Components/Home/Service/Service";
 
 export const houseRentItemContext = createContext();
 export const userContext = createContext();
@@ -32,9 +31,6 @@ function App() {
             <PrivateRoute path="/houseRentItemDetails">
               <HouseRentItemDetails></HouseRentItemDetails>
             </PrivateRoute>
-            {/* <Route path="/service">
-            <Service></Service>
-          </Route> */}
             <Route path="/sidebar">
               <Sidebar></Sidebar>
             </Route>
