@@ -11,7 +11,7 @@ const HouseRentItemDetails = () => {
     img2,
     img3,
     img4,
-    name,
+    title,
     price,
     shortDescription,
     rent,
@@ -81,7 +81,7 @@ const HouseRentItemDetails = () => {
             </div>
             <div className="item-details ml-2">
               <div className="d-flex justify-content-between mt-4">
-                <h3>{name}</h3>
+                <h3>{title}</h3>
                 <h3 className="color-2 mr-5">${price}</h3>
               </div>
               <div>

@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from 'react';
 import Navbar from '../../Reused/Navbar/Navbar';
 import './Login.scss';
@@ -13,7 +12,7 @@ import { useHistory, useLocation } from 'react-router-dom';
  
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
     const history = useHistory();
     const location = useLocation();
@@ -88,12 +87,7 @@ const Login = () => {
             const isPasswordValid = e.target.value.length >5;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
             isFieldValid = isPasswordValid && passwordHasNumber;
-        }
-        if(e.target.name === 'confirmPassword'){
-            const isPasswordValid = e.target.value.length >5;
-            const passwordHasNumber = /\d{1}/.test(e.target.value);
-            isFieldValid = isPasswordValid && passwordHasNumber;
-        }
+        }        
         if(isFieldValid){
             const newUserInfo = {...user};
             newUserInfo[e.target.name] = e.target.value;
@@ -101,8 +95,52 @@ const Login = () => {
         }
     } 
 
-    const handleSubmit = () => {
-              
+    const handleSubmit = (e) => {
+        console.log(user.email, user.password, user.firstName);
+
+        //for new user create an account
+        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+        .then(res => {
+            const newUserInfo = {...user};
+            newUserInfo.error = '';
+            newUserInfo.success = true;
+            setUser(newUserInfo);                
+            setLoggedInUser(newUserInfo);
+            // history.replace(from);
+            console.log(res)
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            const newUserInfo = {...user};
+            newUserInfo.error = error.message;
+            newUserInfo.success = false;
+            setUser(newUserInfo);
+            // ...
+          });
+        
+        //for login a user
+        if(!newUser && user.email && user.password){
+            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            .then(res => {
+                const newUserInfo = {...user};
+                newUserInfo.error = '';
+                newUserInfo.success = true;
+                setUser(newUserInfo);                               
+                setLoggedInUser(newUserInfo);                
+                history.replace(from);
+                console.log(res)
+            })
+            .catch(function(error) {
+                // Handle Errors here.
+                const newUserInfo = {...user};
+                newUserInfo.error = error.message;
+                newUserInfo.success = false;
+                setUser(newUserInfo);
+                // ...
+              });
+        }
+
+        e.preventDefault();
     }
 
 
@@ -112,21 +150,32 @@ const Login = () => {
             <center>                
                 <div class="card" style={{width:'30rem',marginTop: '3rem',borderColor:'gray'}}>
                     <div class="card-body">
-                        <h4>Create an account</h4>
+                        <h4>{newUser ? 'Create An Account' : 'Login'}</h4>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" onBlur={handleBlur} name="firstName" placeholder="First Name" required/>
-                            <input type="text" onBlur={handleBlur} name="lastName" placeholder="Last Name" required/>
+                        {newUser && <input type="text" onBlur={handleBlur} name="firstName" placeholder="First Name" required/>}
+                        {newUser && <input type="text" onBlur={handleBlur} name="lastName" placeholder="Last Name" required/>}
                             <input type="email" onBlur={handleBlur} name="email" placeholder="User name/Email" required/>
                             <br/>
-                            <span className="text-danger">Your password must be 6 character & also using one or more number</span>
-                            <input type="Password" onBlur={handleBlur} name="password" placeholder="Password" required/>
-                            <input type="Password" onBlur={handleBlur} name="confirmPassword " placeholder="Confirm Password" required/>
+                            {newUser && <span className="text-danger">Your password must be 6 character & also using one or more number</span>}
+                            <input type="Password" onBlur={handleBlur} name="password" placeholder="Password" required/>                            
                             <br/>                            
-                            <button type="submit" style={{width:'24rem',padding:'8px',color:'#FFFFFF', backgroundColor:'#275A53',textAlign:'center'}}>Create an account</button>
+                            <input type="submit" value={newUser ? "Create an account" : 'login'} style={{width:'24rem',padding:'8px',color:'#FFFFFF', backgroundColor:'#275A53',textAlign:'center'}}/>
                         </form>
-                        <p className="text-center">Already have an account? <span style={{color:'#275A53',cursor:'pointer'}}>Login</span></p>                        
+                        <p className="text-center">{!newUser ? "Don't have an account?" : 'Already have an account?'} 
+                        <input type="checkbox" style={{                                
+                                marginLeft: "5px",
+                                width:"10px",                                                                
+                                padding: "0px", 
+                                color: "black"}} onChange={() => setNewUser(!newUser) } name="newUser"/>
+                        <label htmlFor="newUser"  className="text-warning">{!newUser ? "Create an account" : 'login'}</label>
+                        
+                        </p>                        
                     </div>
                 </div>
+                <p style={{color:'red',fontSize:'20px',textAlign:'center',marginTop:'20px'}}></p>
+                    {
+                        user.success && <p style={{color:'green',fontSize:'20px',textAlign:'center',marginTop:'20px'}}>User{newUser ? 'created' : 'Logged in'} successfully</p>
+                    }
                 <h5 className="line">Or</h5>
                 <div className="">
                     <div onClick={handleFacebookSignIn} className="google d-flex justify-content-between">

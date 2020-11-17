@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { houseRentItemContext } from "../../../App";
 
 const HouseRentItem = (props) => {
-  const { name, img, bathroom, bedroom, location, price } = props.item;
+  const { title, img, bathroom, bedroom, location, price } = props.item;
   const [houseRentItem, setHouseRentItem] = useContext(houseRentItemContext);
 
   const handleHouseRentItemDetails = (item) => {
@@ -15,7 +15,7 @@ const HouseRentItem = (props) => {
       <div className="card">
         <img src={img} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{name}</h5>
+          <h5 className="card-title">{title}</h5>
           <p className="card-text mb-0 text-secondary">{location}</p>
           <div className="d-flex text-secondary">
             <p className="card-text mt-0">{bedroom} bedrooms</p>
