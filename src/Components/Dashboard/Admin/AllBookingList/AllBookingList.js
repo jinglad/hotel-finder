@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
-import './AllBookingList.css';
+import './AllBookingList.scss';
 
 const AllBookingList = () => {
     return (
@@ -10,8 +10,8 @@ const AllBookingList = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-8 mt-5">
-                    <div className="d-flex justify-content-between mb-5">
-                        <h3 className="mb-0">Booking List</h3>
+                    <div className="d-flex justify-content-between mb-5 mt-3">
+                        <h3>Booking List</h3>
                         <p>User Name</p>
                     </div>
                     <div className="booking-table ml-0 bg-light">
