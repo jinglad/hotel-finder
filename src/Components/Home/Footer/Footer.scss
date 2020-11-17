@@ -2,4 +2,14 @@
     background: #275A53;
     height: 300px;
     color: white;
+
+    a{
+        transition: .3s;
+    }
+    a:hover{
+        color: cornflowerblue!important;
+    }
+}
+.w-24{
+    width: 24px!important;
 }

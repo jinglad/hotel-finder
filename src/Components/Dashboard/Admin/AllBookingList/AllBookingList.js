@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { userContext } from '../../../../App';
 import Sidebar from '../../Sidebar/Sidebar';
 import './AllBookingList.scss';
 
 const AllBookingList = () => {
+    const [bookings, setBookings] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/fullBookingList`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setBookings(data);
+            })
+    }, []);
+
     return (
         <div className="booking-list container-fluid">
             <div className="row">
