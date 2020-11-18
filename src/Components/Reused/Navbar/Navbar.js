@@ -54,7 +54,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="log-in-btn" href="#">
+              <Link to="/login" className="log-in-btn" href="#">
                 Login
               </Link>
             </li>

@@ -1,6 +1,6 @@
 const fakeHouseRentData = [
   {
-    name : "Washington Avenue",
+    title : "Washington Avenue",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
@@ -23,7 +23,7 @@ const fakeHouseRentData = [
     additionalFacilities : "a. Electricity with full generatoe load, b. Central Gas Geyser, c. 2 Car parking with 1 Driver's Accomodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging Facilty with CC camera"
   },
   {
-    name : "Family Apartment Three",
+    title : "Family Apartment Three",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
@@ -46,7 +46,7 @@ const fakeHouseRentData = [
     additionalFacilities : "a. Electricity with full generatoe load, b. Central Gas Geyser, c. 2 Car parking with 1 Driver's Accomodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging Facilty with CC camera"
   },
   {
-    name : "Gorgeous House",
+    title : "Gorgeous House",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
@@ -69,7 +69,7 @@ const fakeHouseRentData = [
     additionalFacilities : "a. Electricity with full generatoe load, b. Central Gas Geyser, c. 2 Car parking with 1 Driver's Accomodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging Facilty with CC camera"
   },
   {
-    name : "Luxury Villa",
+    title : "Luxury Villa",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
@@ -92,7 +92,7 @@ const fakeHouseRentData = [
     additionalFacilities : "a. Electricity with full generatoe load, b. Central Gas Geyser, c. 2 Car parking with 1 Driver's Accomodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging Facilty with CC camera"
   },
   {
-    name : "Epic Huda Palacio",
+    title : "Epic Huda Palacio",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
@@ -115,7 +115,7 @@ const fakeHouseRentData = [
     additionalFacilities : "a. Electricity with full generatoe load, b. Central Gas Geyser, c. 2 Car parking with 1 Driver's Accomodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging Facilty with CC camera"
   },
   {
-    name : "Washington Avenue",
+    title : "Washington Avenue",
     location : "Nasirabad H/S Chattagram",
     bedroom : 3,
     bathroom : 2,
