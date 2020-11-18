@@ -7,7 +7,9 @@ import Sidebar from "../../Sidebar/Sidebar";
 import "./AddRent.scss";
 
 const AddRent = () => {
+  // eslint-disable-next-line no-unused-vars
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  // eslint-disable-next-line no-unused-vars
   const [orders, setOrders] = useContext(bookingsContext);
   console.log(orders);
 

@@ -1,11 +1,12 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCeHEZiCFQrHzoLawTTAkTMBzWmrlGpEO4",
-    authDomain: "hotel-finder-547f4.firebaseapp.com",
-    databaseURL: "https://hotel-finder-547f4.firebaseio.com",
-    projectId: "hotel-finder-547f4",
-    storageBucket: "hotel-finder-547f4.appspot.com",
-    messagingSenderId: "598848477022",
-    appId: "1:598848477022:web:ad8c9d0a62ff9aa13ba1cf"
+  apiKey: "AIzaSyDFyV4iEsyDcGIsJ2gggDFNewt3kQx34uc",
+  authDomain: "hotel-hunting.firebaseapp.com",
+  databaseURL: "https://hotel-hunting.firebaseio.com",
+  projectId: "hotel-hunting",
+  storageBucket: "hotel-hunting.appspot.com",
+  messagingSenderId: "311666565262",
+  appId: "1:311666565262:web:1e13abec73db6a971429df"
+
   };
   
   export default firebaseConfig;
