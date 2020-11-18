@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/scope */
 import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../../../../App";
 import Sidebar from "../../Sidebar/Sidebar";
@@ -5,6 +6,7 @@ import "./AllBookingList.scss";
 
 const AllBookingList = () => {
   const [bookings, setBookings] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   //   const [request,set]
   //   useEffect(() => {

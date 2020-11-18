@@ -148,8 +148,8 @@ const Login = () => {
         <div>
             <Navbar></Navbar>
             <center>                
-                <div class="card" style={{width:'30rem',marginTop: '3rem',borderColor:'gray'}}>
-                    <div class="card-body">
+                <div className="card" style={{width:'30rem',marginTop: '3rem',borderColor:'gray'}}>
+                    <div className="card-body">
                         <h4>{newUser ? 'Create An Account' : 'Login'}</h4>
                         <form onSubmit={handleSubmit}>
                         {newUser && <input type="text" onBlur={handleBlur} name="firstName" placeholder="First Name" required/>}
