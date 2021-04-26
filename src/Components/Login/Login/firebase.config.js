@@ -1,12 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDFyV4iEsyDcGIsJ2gggDFNewt3kQx34uc",
-  authDomain: "hotel-hunting.firebaseapp.com",
-  databaseURL: "https://hotel-hunting.firebaseio.com",
-  projectId: "hotel-hunting",
-  storageBucket: "hotel-hunting.appspot.com",
-  messagingSenderId: "311666565262",
-  appId: "1:311666565262:web:1e13abec73db6a971429df"
+  apiKey: "AIzaSyAzOUrtw5i7CmyJTrnWfvfgwrRYIha5FxI",
+  authDomain: "hotel-hunt-ab6a0.firebaseapp.com",
+  projectId: "hotel-hunt-ab6a0",
+  storageBucket: "hotel-hunt-ab6a0.appspot.com",
+  messagingSenderId: "557879514467",
+  appId: "1:557879514467:web:addde37b4bae898c186f56",
+};
 
-  };
-  
-  export default firebaseConfig;
+export default firebaseConfig;

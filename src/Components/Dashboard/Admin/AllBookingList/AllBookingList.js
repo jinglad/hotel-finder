@@ -8,22 +8,9 @@ const AllBookingList = () => {
   const [bookings, setBookings] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
-  //   const [request,set]
-  //   useEffect(() => {
-  //     fetch(`https://scintillating-rustic-egret.glitch.me/fullBookingList`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setBookings(data);
-  //       });
-  //   }, []);
 
   useEffect(() => {
-    fetch("https://scintillating-rustic-egret.glitch.me/requests")
+    fetch("http://localhost:5000/requests")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);
@@ -37,7 +24,7 @@ const AllBookingList = () => {
         <div className="col-md-8 mt-5">
           <div className="d-flex justify-content-between mb-5 mt-3">
             <h3>Booking List</h3>
-            <p>User Name</p>
+            <p>{loggedInUser.name}</p>
           </div>
           <div className="booking-table ml-0 bg-light">
             <div className="request-list">
@@ -70,7 +57,9 @@ const AllBookingList = () => {
                       <td>{item.data.description}</td>
                       <td scope="col" span="1">
                         <select className="status-change">
-                          <option className="text-danger" value="pending">Pending</option>
+                          <option className="text-danger" value="pending">
+                            Pending
+                          </option>
                           <option value="done">Done</option>
                         </select>
                       </td>

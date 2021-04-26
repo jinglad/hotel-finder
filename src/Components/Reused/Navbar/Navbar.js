@@ -1,9 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./Navbar.scss";
 import logo from "../../../Images/logos/Logo.png";
+import { userContext } from "../../../App";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  // const history = useHistory();
+
+  const handleSignOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        // console.log("signout successfully");
+        // history.push("/login");
+        if (loggedInUser.success) {
+          const signOut = {
+            isSignedIn: false,
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            error: "",
+            success: false,
+          };
+          setLoggedInUser(signOut);
+        } else {
+          const signOutUser = {
+            name: "",
+            email: "",
+          };
+          setLoggedInUser(signOutUser);
+        }
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
   return (
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-nav">
@@ -54,9 +91,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="log-in-btn" to="/login">
-                Login
-              </Link>
+              {!loggedInUser.email ? (
+                <Link className="log-in-btn" to="/login">
+                  Login
+                </Link>
+              ) : (
+                <button onClick={handleSignOut} className="log-in-btn">
+                  LogOut
+                </button>
+              )}
             </li>
           </ul>
         </div>

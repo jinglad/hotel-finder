@@ -1,16 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { bookingsContext, houseRentItemContext, userContext } from "../../../App";
+import {
+  bookingsContext,
+  houseRentItemContext,
+  userContext,
+} from "../../../App";
 import Navbar from "../../Reused/Navbar/Navbar";
 import HouseRentItemDetailsHeader from "../HouseRentItem/HouseRentItemDetailsHeader/HouseRentItemDetailsHeader";
-import './HouseRentItemDetails.scss';
-import { useForm } from 'react-hook-form';
+import "./HouseRentItemDetails.scss";
+import { useForm } from "react-hook-form";
 
 const HouseRentItemDetails = () => {
   const [houseRentItem, setHouseRentItem] = useContext(houseRentItemContext);
   const [orders, setOrders] = useContext(bookingsContext);
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
-  const [info,setInfo] = useState({});
+  const [info, setInfo] = useState({});
   const { register, handleSubmit, watch, errors } = useForm();
 
   let history = useHistory();
@@ -37,26 +41,26 @@ const HouseRentItemDetails = () => {
 
   const handleBooking = (item) => {
     setOrders(item);
-    console.log(item);
+    // console.log(item);
     // history.push("/add-rent");
-  }
+  };
 
-  const onSubmit = data => {
-    const RequestDetails = {data: data};
-    fetch('https://scintillating-rustic-egret.glitch.me/addRequest', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(RequestDetails)
+  const onSubmit = (data) => {
+    const RequestDetails = { data: data };
+    fetch("http://localhost:5000/addRequest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(RequestDetails),
     })
-        .then(res => res.json())
-        .then(data => {
-            if (data) {
-                alert('Your Request is Successfull...!');
-            }
-        })
-};
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("Your Request is Successfull...!");
+        }
+      });
+  };
 
   return (
     <div>
@@ -141,35 +145,77 @@ const HouseRentItemDetails = () => {
                 <p className="my-0 text-secondary">
                   Address and Area: {address}
                 </p>
-                <p className="my-0 text-secondary">Flat Size:  {flatSize} Sq Feet</p>
+                <p className="my-0 text-secondary">
+                  Flat Size: {flatSize} Sq Feet
+                </p>
                 <p className="my-0 text-secondary">Floor: {floor}</p>
-                <p className="my-0 text-secondary">Room Category:{roomCategory}</p>
+                <p className="my-0 text-secondary">
+                  Room Category:{roomCategory}
+                </p>
                 <p className="my-0 text-secondary">Facilities: {facilities}</p>
-                <p className="my-0 text-secondary">Additional Facilities: {additionalFacilities}</p>
+                <p className="my-0 text-secondary">
+                  Additional Facilities: {additionalFacilities}
+                </p>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-          <form className="form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-group">
-                <input type="text" className="text-secondary form-control-lg form-control" name="name"  defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Full name"/>
-            </div>
-            <div className="form-group">
-                <input type="text"  className="text-secondary form-control-lg form-control" name="phone" ref={register({ required: true })} placeholder="Phone No."/>
-            </div>
-            <div className="form-group">
-                <input type="email"  className="text-secondary form-control-lg form-control" name="email" ref={register({ required: true })} defaultValue={loggedInUser.email} placeholder="Email Address"/>
-            </div>
-            <div className="form-group">
-                <textarea cols="30" rows="5" ref={register({ required: true })} name="description"  placeholder="Message" className="text-secondary form-control-lg form-control"></textarea>
-            </div>
-            <div className="form-group"> 
-                <button className="btn btn-block btn-primary" onClick={() => handleBooking(houseRentItem)}>Request Booking</button><br/>
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="text-secondary form-control-lg form-control"
+                  name="name"
+                  defaultValue={loggedInUser.name}
+                  ref={register({ required: true })}
+                  placeholder="Full name"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="text-secondary form-control-lg form-control"
+                  name="phone"
+                  ref={register({ required: true })}
+                  placeholder="Phone No."
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="text-secondary form-control-lg form-control"
+                  name="email"
+                  ref={register({ required: true })}
+                  defaultValue={loggedInUser.email}
+                  placeholder="Email Address"
+                />
+              </div>
+              <div className="form-group">
+                <textarea
+                  cols="30"
+                  rows="5"
+                  ref={register({ required: true })}
+                  name="description"
+                  placeholder="Message"
+                  className="text-secondary form-control-lg form-control"
+                ></textarea>
+              </div>
+              <div className="form-group">
+                <button
+                  className="btn btn-block btn-primary"
+                  onClick={() => handleBooking(houseRentItem)}
+                >
+                  Request Booking
+                </button>
+                <br />
                 <Link to="/add-rent">
-                  <button className="btn btn-block btn-primary">Add Rent</button></Link>
-            </div>
-          </form>
-      </div>
+                  <button className="btn btn-block btn-primary">
+                    Add Rent
+                  </button>
+                </Link>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

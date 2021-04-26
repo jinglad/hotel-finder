@@ -10,6 +10,7 @@ import Sidebar from "./Components/Dashboard/Sidebar/Sidebar";
 import MyRent from "./Components/Dashboard/User/MyRent/MyRent";
 import AllBookingList from "./Components/Dashboard/Admin/AllBookingList/AllBookingList";
 import AddRent from "./Components/Dashboard/User/AddRent/AddRent";
+import MakeAdmin from "./Components/Dashboard/Admin/MakeAdmin";
 
 export const houseRentItemContext = createContext();
 export const userContext = createContext();
@@ -23,31 +24,34 @@ function App() {
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <houseRentItemContext.Provider value={[houseRentItem, setHouseRentItem]}>
         <bookingsContext.Provider value={[orders, setOrders]}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route path="/login">
-              <Login></Login>
-            </Route>
-            <PrivateRoute path="/houseRentItemDetails">
-              <HouseRentItemDetails></HouseRentItemDetails>
-            </PrivateRoute>
-            <Route path="/sidebar">
-              <Sidebar></Sidebar>
-            </Route>
-            <Route path="/add-rent">
-              <AddRent></AddRent>
-            </Route>
-            <Route path="/my-rent">
-              <MyRent></MyRent>
-            </Route>
-            <Route path="/all-bookings">
-              <AllBookingList></AllBookingList>
-            </Route>
-          </Switch>
-        </Router>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <PrivateRoute path="/houseRentItemDetails">
+                <HouseRentItemDetails></HouseRentItemDetails>
+              </PrivateRoute>
+              <PrivateRoute path="/sidebar">
+                <Sidebar></Sidebar>
+              </PrivateRoute>
+              <PrivateRoute path="/add-rent">
+                <AddRent></AddRent>
+              </PrivateRoute>
+              <PrivateRoute path="/my-rent">
+                <MyRent></MyRent>
+              </PrivateRoute>
+              <PrivateRoute path="/all-bookings">
+                <AllBookingList></AllBookingList>
+              </PrivateRoute>
+              <PrivateRoute path="/make-admin">
+                <MakeAdmin />
+              </PrivateRoute>
+            </Switch>
+          </Router>
         </bookingsContext.Provider>
       </houseRentItemContext.Provider>
     </userContext.Provider>
