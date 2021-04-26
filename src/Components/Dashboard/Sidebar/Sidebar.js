@@ -11,7 +11,9 @@ const SideBar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/isAdmin?email=${loggedInUser.email}`)
+    fetch(
+      `https://grandiose-fabulous-maraca.glitch.me//isAdmin?email=${loggedInUser.email}`
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.length > 0) {

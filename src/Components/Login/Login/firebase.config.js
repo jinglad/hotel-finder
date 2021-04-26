@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAzOUrtw5i7CmyJTrnWfvfgwrRYIha5FxI",
-  authDomain: "hotel-hunt-ab6a0.firebaseapp.com",
-  projectId: "hotel-hunt-ab6a0",
-  storageBucket: "hotel-hunt-ab6a0.appspot.com",
-  messagingSenderId: "557879514467",
-  appId: "1:557879514467:web:addde37b4bae898c186f56",
+  apiKey: "AIzaSyAlDCv7Q6-bXnYSfrVNi9EA1JEhOAnw88Y",
+  authDomain: "hotel-rent.firebaseapp.com",
+  projectId: "hotel-rent",
+  storageBucket: "hotel-rent.appspot.com",
+  messagingSenderId: "154936146536",
+  appId: "1:154936146536:web:6eb505d48ca49d458a99dd",
 };
 
 export default firebaseConfig;

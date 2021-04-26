@@ -11,7 +11,7 @@ const AddRent = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   // eslint-disable-next-line no-unused-vars
   const [orders, setOrders] = useContext(bookingsContext);
-  console.log(orders);
+  // console.log(orders);
 
   const [info, setInfo] = useState({});
   const [file, setFile] = useState(null);
@@ -37,11 +37,11 @@ const AddRent = () => {
     formData.append("email", loggedInUser.email);
     formData.append("title", orders.title);
     formData.append("price", orders.price);
-    formData.append("location",orders.location);
-    formData.append("bathroom",orders.bathroom);
-    formData.append("bedroom",orders.bedroom);
+    formData.append("location", orders.location);
+    formData.append("bathroom", orders.bathroom);
+    formData.append("bedroom", orders.bedroom);
 
-    fetch("https://scintillating-rustic-egret.glitch.me/postOrder", {
+    fetch("https://grandiose-fabulous-maraca.glitch.me/postOrder", {
       method: "POST",
       body: formData,
     })
@@ -51,12 +51,20 @@ const AddRent = () => {
           alert(
             "Your order is submitted...!..check your service list...Thank you...!"
           );
+          const clearOrder = {
+            title: "",
+            price: "",
+            location: "",
+            bathroom: "",
+            bedroom: "",
+          };
+          setOrders(clearOrder);
         }
       })
       .catch((error) => {
         console.error(error);
       });
-      history.push('/my-rent');
+    history.push("/my-rent");
   };
 
   return (
@@ -71,7 +79,7 @@ const AddRent = () => {
             <div className="bg-light py-2 rounded " style={{ height: "89vh" }}>
               <form onSubmit={handleSubmit}>
                 <div
-                  className="row    p-4 mx-5 mt-5 bg-white "
+                  className="row p-4 mx-5 mt-5 bg-white "
                   style={{ borderRadius: "15px" }}
                 >
                   <div className="col-xl-6 col-md-6 col-sm-12 col-12 ">
@@ -82,18 +90,21 @@ const AddRent = () => {
                         name="title"
                         className="form-control "
                         placeholder="Enter title"
-                        onBlur={handleBlur}
+                        onChange={handleBlur}
                         value={orders.title}
                       />
                     </div>
                     <div className="form-group">
-                      <label className="font-weight-bold">Location</label>
+                      <label htmlFor="location" className="font-weight-bold">
+                        Location
+                      </label>
                       <input
                         type="text"
                         name="location"
-                        className="form-control "
+                        id="location"
+                        className="form-control"
                         placeholder="Enter title"
-                        onBlur={handleBlur}
+                        onChange={handleBlur}
                         value={orders.location}
                       />
                     </div>
@@ -104,7 +115,7 @@ const AddRent = () => {
                         name="bathroom"
                         className="form-control "
                         placeholder="Enter title"
-                        onBlur={handleBlur}
+                        onChange={handleBlur}
                         value={orders.bathroom}
                       />
                     </div>
@@ -118,7 +129,7 @@ const AddRent = () => {
                         name="price"
                         className="form-control "
                         placeholder="Enter price"
-                        onBlur={handleBlur}
+                        onChange={handleBlur}
                         value={orders.price}
                       />
                     </div>
@@ -129,7 +140,7 @@ const AddRent = () => {
                         name="bedroom"
                         className="form-control "
                         placeholder="Enter title"
-                        onBlur={handleBlur}
+                        onChange={handleBlur}
                         value={orders.bedroom}
                       />
                     </div>

@@ -47,7 +47,7 @@ const HouseRentItemDetails = () => {
 
   const onSubmit = (data) => {
     const RequestDetails = { data: data };
-    fetch("http://localhost:5000/addRequest", {
+    fetch("https://grandiose-fabulous-maraca.glitch.me//addRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

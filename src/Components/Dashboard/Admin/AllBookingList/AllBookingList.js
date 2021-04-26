@@ -10,7 +10,7 @@ const AllBookingList = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/requests")
+    fetch("https://grandiose-fabulous-maraca.glitch.me//requests")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);

@@ -5,7 +5,7 @@ function MakeAdmin() {
   const [admin, setAdmin] = useState(null);
 
   const handleSubmit = (e) => {
-    fetch("http://localhost:5000/makeAdmin", {
+    fetch("https://grandiose-fabulous-maraca.glitch.me//makeAdmin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
